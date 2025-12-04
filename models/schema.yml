@@ -1,0 +1,50 @@
+version: 2
+
+sources:
+  - name: raw
+    description: Raw data from Databricks
+    database: main
+    schema: dbt_analytics
+    tables:
+      - name: raw_customers
+        description: Raw customers table
+        columns:
+          - name: id
+            description: Customer ID
+          - name: first_name
+            description: Customer first name
+          - name: last_name
+            description: Customer last name
+
+      - name: raw_orders
+        description: Raw orders table
+        columns:
+          - name: id
+            description: Order ID
+          - name: user_id
+            description: User ID
+          - name: order_date
+            description: Order date
+          - name: status
+            description: Order status
+
+      - name: stripe_payments
+        description: Stripe payment data
+        columns:
+          - name: id
+            description: Payment ID
+          - name: order_id
+            description: Order ID
+          - name: payment_method
+            description: Payment method
+          - name: amount
+            description: Payment amount
+          - name: created
+            description: Payment creation date
+
+models:
+  - name: customers
+    description: Customer dimension table with order information
+    columns:
+      - name: customer_id
+        description: Unique customer identifier
