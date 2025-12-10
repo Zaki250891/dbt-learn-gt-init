@@ -5,7 +5,7 @@ with customers as (
         first_name,
         last_name
 
-    from {{ ref('raw_customers') }}
+    from raw.default.jaffle_shop_customers
 
 ),
 
@@ -17,7 +17,7 @@ orders as (
         order_date,
         status
 
-    from {{ ref('raw_orders') }}
+    from raw.default.jaffle_shop_orders
 
 ),
 
