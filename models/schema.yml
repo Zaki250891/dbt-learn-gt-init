@@ -1,13 +1,13 @@
 version: 2
 
 sources:
-  - name: raw
-    description: Raw data from Databricks
-    database: main
-    schema: dbt_analytics
+  - name: jaffle_shop
+    description: Raw data loaded from seeds (DuckDB)
+    schema: main_raw
+
     tables:
-      - name: raw_customers
-        description: Raw customers table
+      - name: customers
+        description: Raw customers seed
         columns:
           - name: id
             description: Customer ID
@@ -16,8 +16,8 @@ sources:
           - name: last_name
             description: Customer last name
 
-      - name: raw_orders
-        description: Raw orders table
+      - name: orders
+        description: Raw orders seed
         columns:
           - name: id
             description: Order ID
@@ -42,9 +42,4 @@ sources:
           - name: created
             description: Payment creation date
 
-models:
-  - name: customers
-    description: Customer dimension table with order information
-    columns:
-      - name: customer_id
-        description: Unique customer identifier
+
